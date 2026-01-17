@@ -7,6 +7,10 @@ package com.stuypulse.robot;
 
 import com.stuypulse.robot.commands.auton.DoNothingAuton;
 import com.stuypulse.robot.constants.Ports;
+import com.stuypulse.robot.subsystems.superstructure.Superstructure;
+import com.stuypulse.robot.commands.superstructure.IntakeAlgae;
+import com.stuypulse.robot.commands.superstructure.OuttakeAlgae;
+import com.stuypulse.robot.commands.superstructure.OuttakeCoral;
 import com.stuypulse.stuylib.input.Gamepad;
 import com.stuypulse.stuylib.input.gamepads.AutoGamepad;
 
@@ -21,7 +25,7 @@ public class RobotContainer {
     public final Gamepad operator = new AutoGamepad(Ports.Gamepad.OPERATOR);
     
     // Subsystem 
-    
+    private final Superstructure superstructure = Superstructure.getInstance();
     // Autons
     private static SendableChooser<Command> autonChooser = new SendableChooser<>();
 
@@ -43,7 +47,11 @@ public class RobotContainer {
     /*** BUTTONS ***/
     /***************/
 
-    private void configureButtonBindings() {}
+    private void configureButtonBindings() {
+        driver.getDPadUp().onTrue(new IntakeAlgae());
+        driver.getDPadDown().onTrue(new OuttakeAlgae());
+        driver.getDPadLeft().onTrue(new OuttakeCoral());
+    }
 
     /**************/
     /*** AUTONS ***/
@@ -57,5 +65,5 @@ public class RobotContainer {
 
     public Command getAutonomousCommand() {
         return autonChooser.getSelected();
-    }
+    }   
 }

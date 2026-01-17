@@ -31,7 +31,7 @@ import com.ctre.phoenix6.signals.NeutralModeValue;
  *  - The Open Loop Ramp Rate
  */
 public interface Motors {
-
+    
     /** Classes to store all of the values a motor needs */
 
     public static class TalonFXConfig {

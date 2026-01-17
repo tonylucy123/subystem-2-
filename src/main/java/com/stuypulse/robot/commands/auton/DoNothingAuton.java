@@ -8,7 +8,7 @@ package com.stuypulse.robot.commands.auton;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 /*-
- * This auton does nothing... it is used as a placeholder
+ * This auton does nothing... it is used as a placeholder and does nothing
  *
  * @author Sam Belliveau
  */
