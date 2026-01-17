@@ -6,8 +6,6 @@ import com.stuypulse.robot.constants.Settings.SuperstructureInterface;
 import com.stuypulse.robot.constants.Motors.TalonFXConfig;
 import com.ctre.phoenix6.controls.MotionMagicVoltage;
 
-//import edu.wpi.first.wpilibj.motorcontrol.Talon;
-
 public class SuperstructureImpl extends Superstructure {
     private TalonFX armMotor;
     private TalonFX intakeMotor;
