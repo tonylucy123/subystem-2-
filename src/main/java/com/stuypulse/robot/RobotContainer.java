@@ -5,6 +5,7 @@
 
 package com.stuypulse.robot;
 
+import com.stuypulse.robot.commands.ClimbCommands.*;
 import com.stuypulse.robot.commands.auton.DoNothingAuton;
 import com.stuypulse.robot.constants.Ports;
 import com.stuypulse.robot.subsystems.ClimbSubsystem.Climb;
@@ -46,7 +47,10 @@ public class RobotContainer {
     /*** BUTTONS ***/
     /***************/
 
-    private void configureButtonBindings() {}
+    private void configureButtonBindings() {
+        driver.getRightButton().onTrue(new ClimbUp());
+        driver.getLeftButton().onTrue(new ClimbDown());
+    }
 
     /**************/
     /*** AUTONS ***/
@@ -61,4 +65,4 @@ public class RobotContainer {
     public Command getAutonomousCommand() {
         return autonChooser.getSelected();
     }
-}
+} 
