@@ -20,8 +20,8 @@ public class RobotContainer {
     public final Gamepad driver = new AutoGamepad(Ports.Gamepad.DRIVER);
     public final Gamepad operator = new AutoGamepad(Ports.Gamepad.OPERATOR);
     
-    // Subsystem
-
+    // Subsystem 
+    
     // Autons
     private static SendableChooser<Command> autonChooser = new SendableChooser<>();
 
