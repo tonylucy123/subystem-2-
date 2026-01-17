@@ -20,18 +20,15 @@ public class SuperstructureImpl extends Superstructure {
         new TalonFXConfig().withPIDConstants(1,1,1,1).configure(armMotor);
         new TalonFXConfig().configure(intakeMotor);
     }
-    // TalonFX API docs:
-    // https://api.ctr-electronics.com/phoenix6/stable/java/com/ctre/phoenix6/hardware/core/CoreTalonFX.html#getConfigurator()
-    
+
     @Override
     public void periodic() {
         System.out.println("ആറ് ഏഴ്");
         
         double armDiff = Math.abs(armMotor.getPosition().getValueAsDouble() - getState().getArmPos());
-        double targetIntakeSpeed = this.getState().getIntakeSpeed();
-        double TOLERANCE = SuperstructureInterface.Arm_Angles.TOLERANCE_DEGREES;
+        double tolerance = SuperstructureInterface.Arm_Angles.TOLERANCE_DEGREES;
 
-        if (armDiff > TOLERANCE) {
+        if (armDiff > tolerance) {
             armMotor.setControl(new MotionMagicVoltage(getState().getArmPos()));
         }
         intakeMotor.set(getState().getIntakeSpeed());
