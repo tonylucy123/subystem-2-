@@ -19,6 +19,7 @@ public class Superstructure extends SubsystemBase {
         OUTTAKING_ALGAE(Settings.Superstructure.Intake_Speeds.ALGAE_OUTTAKE_SPEED),
         OUTTAKING_CORAL(Settings.Superstructure.Intake_Speeds.CORAL_OUTTAKE_SPEED);
 
-        private do
+        private double speed;
+        private SuperstructureState(double speed) {}
     }
 } 
