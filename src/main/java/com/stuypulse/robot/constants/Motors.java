@@ -21,6 +21,13 @@ import com.ctre.phoenix6.signals.GravityTypeValue;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
+
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.config.SparkMaxConfig;
+import com.revrobotics.spark.config.SparkBaseConfig;
+import com.revrobotics.ResetMode;
+import com.revrobotics.PersistMode;
+
 /*-
  * File containing all of the configurations that different motors require.
  *
@@ -33,7 +40,13 @@ import com.ctre.phoenix6.signals.NeutralModeValue;
 public interface Motors {
 
     /** Classes to store all of the values a motor needs */
-
+    public static class NeoConfig {
+        private final SparkBaseConfig configuration = new SparkMaxConfig().inverted(true);
+        
+        public void configure(SparkMax motor) {
+            motor.configure(configuration, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+        }
+    }
     public static class TalonFXConfig {
         private final TalonFXConfiguration configuration = new TalonFXConfiguration();
         private final Slot0Configs slot0Configs = new Slot0Configs();
